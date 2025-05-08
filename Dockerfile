@@ -6,7 +6,7 @@ WORKDIR /build
 ENV GOTOOLCHAIN=auto
 
 # Clone the repository
-RUN git clone https://github.com/awslabs/tc-redirect-tap.git .
+RUN git clone https://github.com/spurin/tc-redirect-tap.git .
 
 # Build the binary
 RUN go build -o /go/bin/tc-redirect-tap ./cmd/tc-redirect-tap
