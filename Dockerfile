@@ -5,8 +5,11 @@ RUN apk add --no-cache git
 WORKDIR /build
 ENV GOTOOLCHAIN=auto
 
-# Fetch & build the plugin
-RUN go install github.com/awslabs/tc-redirect-tap/cmd/tc-redirect-tap@latest
+# Clone the repository
+RUN git clone https://github.com/awslabs/tc-redirect-tap.git .
+
+# Build the binary
+RUN go build -o /go/bin/tc-redirect-tap ./cmd/tc-redirect-tap
 
 # ---------- Minimal final stage ----------
 FROM scratch
